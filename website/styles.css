@@ -2156,25 +2156,33 @@ details.faq-item p {
 }
 
 .hero-console .frame-bar {
-  padding: 0.6rem 0.85rem;
-  gap: 0.45rem;
+  padding: 0.56rem 0.78rem;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.hero-console .dots {
+  flex-shrink: 0;
+  gap: 0.32rem;
 }
 
 .hero-console .frame-tabs {
-  gap: 0.25rem;
+  gap: 0.22rem;
   flex-wrap: nowrap;
 }
 
 .hero-console .frame-tab {
-  padding: 0.26rem 0.52rem;
-  font-size: 0.76rem;
+  padding: 0.24rem 0.48rem;
+  font-size: 0.74rem;
   white-space: nowrap;
 }
 
 .hero-console .frame-open-link {
-  padding: 0.24rem 0.58rem;
-  font-size: 0.75rem;
+  padding: 0.22rem 0.52rem;
+  font-size: 0.72rem;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .hero-console .preview-body {
@@ -2324,6 +2332,7 @@ details.faq-item p {
     width: 76px;
     height: 76px;
   }
+  .hero-console .frame-bar,
   .hero-console .frame-tabs {
     flex-wrap: wrap;
   }
