@@ -169,14 +169,14 @@
 
   // Homepage Interactive Voice Preview & Equalizer
   const PREVIEW_VIEWS = {
-    term: `$ sautimesh chat --text "Habari daktari, mtoto ana fever kali leo" --currency KES
+    term: `$ sautimesh chat --text "Habari daktari, mtoto ana fever kali"
 
-SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
-  Detected Langs:    sw + en (CSI: 0.429)
-  Domain / Intent:   health_triage / pediatric_fever_triage
-  SMS Fallback:      GSM-7 · 1 segment (108/160 chars)
-  Reply (Swahili):   "Kwa homa ya mtoto, mpime joto leo, mpe maji mengi safi,
-                      na umpeleke kliniki kupima malaria kabla ya kumeza dawa."`,
+SautiMesh v0.1.0 · offline_rules (0 ms · 0 B · KES 0.0)
+  Langs:   sw + en (CSI: 0.429)
+  Intent:  health_triage / pediatric_fever_triage
+  Carrier: GSM-7 · 1 segment (108/160 chars)
+  Reply:   "Kwa homa ya mtoto, mpime joto leo,
+            mpe maji mengi safi, umpeleke kliniki."`,
     codeswitch: `$ sautimesh analyze "Nnyamba mangu ssebo omwana avaamu omusaayi PIN: 4829"
 
   Primary Language:  lg (Luganda) · Urgency: HIGH
