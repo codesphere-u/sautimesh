@@ -1,0 +1,11 @@
+# SautiMesh (`v0.1.0`)
+
+> Voice-first, offline-first multilingual and code-switching AI agent runtime for Africa and the global edge. Supports Swahili, Luganda, Yoruba, Hausa, French, English, Nigerian Pidgin, and Runyankole with SQLite WAL store-and-forward sync and DPGA Open AI transparency.
+
+- Website: https://codesphere-u.github.io/sautimesh/
+- Interactive Voice Studio: https://codesphere-u.github.io/sautimesh/studio.html
+- Research & Proof: https://codesphere-u.github.io/sautimesh/proof.html
+- Language Rules & Safety: https://codesphere-u.github.io/sautimesh/rules.html
+- Documentation: https://codesphere-u.github.io/sautimesh/docs.html
+- Repository: https://github.com/codesphere-u/sautimesh
+- License: MIT

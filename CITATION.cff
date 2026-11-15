@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you cite or use SautiMesh in research, Digital Public Goods, or field deployments, please cite it below."
+authors:
+  - family-names: "Akandwanaho"
+    given-names: "Ivan"
+    email: "codesphereinnovationz@gmail.com"
+    affiliation: "Codesphere Innovations (U) Limited"
+title: "SautiMesh"
+abstract: "Voice-first, offline-first multilingual and code-switching AI agent runtime, ASR/TTS bridge, SQLite store-and-forward queue, and Digital Public Goods safety harness for Africa and the global edge."
+version: "0.1.0"
+date-released: 2026-11-15
+url: "https://github.com/codesphere-u/sautimesh"
+repository-code: "https://github.com/codesphere-u/sautimesh"
+license: "MIT"

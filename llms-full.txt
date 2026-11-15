@@ -1,0 +1,12 @@
+# SautiMesh (`v0.1.0`) — Full AI & Developer Reference
+
+## Architecture Summary
+SautiMesh is a pure-Python 3.11+ runtime (`sautimesh`) uniting digital PCM audio VAD, token-level multilingual code-switching normalization, PII redaction, GSM-7/UCS-2 SMS & USSD packet compilation, a 3-stage offline-first -> edge SLM -> budget-gated cloud cascade, WAL SQLite store-and-forward queuing, interactive web workbench, and stdio MCP server.
+
+## CLI & MCP Endpoints
+- CLI: `sautimesh analyze`, `sautimesh chat`, `sautimesh synth-sample`, `sautimesh eval`, `sautimesh sync`, `sautimesh dpg-card`, `sautimesh doctor`, `sautimesh serve`, `sautimesh mcp`.
+- HTTP Workbench API: `GET /api/health`, `GET /api/eval`, `GET /api/queue`, `GET /api/dpg`, `POST /api/analyze`, `POST /api/turn`, `POST /api/sync`.
+- MCP Tools: `sautimesh_analyze_utterance`, `sautimesh_run_voice_turn`, `sautimesh_run_benchmark`, `sautimesh_sync_outbox`, `sautimesh_export_dpg_card`.
+
+## Supported Language Packs
+Swahili (`sw`), Luganda (`lg`), Yoruba (`yo`), Hausa (`ha`), French (`fr`), English (`en`), Nigerian Pidgin (`pcm`), Runyankole (`nyn`).

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SautiMesh — Language Packs, PII &amp; Carrier Packing Rules</title>
+    <meta
+      name="description"
+      content="Explore SautiMesh's 8 African and global language lexicons, GSM-7 vs UCS-2 SMS/USSD packing limits, and PII redaction rules."
+    />
+    <meta name="theme-color" content="#fffdf2" />
+    <link rel="canonical" href="https://codesphere-u.github.io/sautimesh/rules.html" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=0.1.0" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codesphere-u.github.io/sautimesh/rules.html" />
+    <meta property="og:title" content="SautiMesh Language Packs &amp; Safety Rules" />
+    <meta property="og:description" content="Built-in language packs, emergency escalation triggers, and GSM-7/UCS-2 packet rules." />
+    <meta property="og:image" content="https://codesphere-u.github.io/sautimesh/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SautiMesh Language Packs &amp; Safety Rules" />
+    <meta name="twitter:description" content="Built-in language packs, emergency escalation triggers, and GSM-7/UCS-2 packet rules." />
+    <meta name="twitter:image" content="https://codesphere-u.github.io/sautimesh/og-image.svg" />
+    <link rel="stylesheet" href="./styles.css?v=0.1.0" />
+  </head>
+  <body>
+    <div class="page-col">
+      <header class="site-header">
+        <a class="brand-link" href="./" aria-label="SautiMesh home">
+          <svg class="brand-wordmark-svg" width="186" height="36" viewBox="0 0 212 40" fill="none" role="img" aria-label="sautimesh">
+            <rect x="2" y="5" width="28" height="28" rx="8" fill="#facc15" stroke="#1f2421" stroke-width="2.6" />
+            <rect x="12" y="10.5" width="8" height="12" rx="4" fill="#7dd3fc" stroke="#1f2421" stroke-width="2" />
+            <path d="M9.5 19.5c0 3.8 2.9 6.5 6.5 6.5s6.5-2.7 6.5-6.5M16 26v3.5" stroke="#1f2421" stroke-width="2" stroke-linecap="round" />
+            <text x="39" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="23" font-weight="800" letter-spacing="-0.6" fill="none" stroke="#1f2421" stroke-width="4" stroke-linejoin="round">sautimesh</text>
+            <text x="39" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="23" font-weight="800" letter-spacing="-0.6" fill="#facc15">sautimesh</text>
+          </svg>
+        </a>
+
+        <nav class="header-nav" aria-label="Primary navigation">
+          <a href="./studio.html">studio</a>
+          <a href="./proof.html">proof</a>
+          <a href="./docs.html">docs</a>
+          <a class="active" href="./rules.html" aria-current="page">rules</a>
+          <a class="icon-link" href="https://github.com/codesphere-u/sautimesh" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+          <a class="nav-pill" href="https://github.com/codesphere-u/sautimesh/releases" target="_blank" rel="noopener noreferrer">v0.1.0</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="page-hero">
+          <h1>languages, carrier limits &amp; safety rules</h1>
+          <p class="hero-sub">Every token classifier, privacy strip rule, and SMS/USSD packet boundary enforced offline.</p>
+        </section>
+
+        <div class="rules-filter">
+          <input id="rules-search" class="input" type="search" placeholder="Search rule, language, or keyword..." />
+          <select id="rules-lang" class="select">
+            <option value="all">All Categories</option>
+            <option value="lang">Language Packs</option>
+            <option value="safety">Privacy &amp; Safety</option>
+            <option value="carrier">Carrier &amp; Audio</option>
+          </select>
+        </div>
+
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Code</th><th>Rule / Pack</th><th>Guarantee</th></tr>
+            </thead>
+            <tbody>
+              <tr data-lang="lang"><td><code>sw</code></td><td>Swahili (Kiswahili)</td><td>Token glossary across clinic triage, crops, pests, mobile money.</td></tr>
+              <tr data-lang="lang"><td><code>lg</code></td><td>Luganda (Oluganda)</td><td>Supports Kampala &amp; central Uganda code-switching + urgent terms.</td></tr>
+              <tr data-lang="lang"><td><code>yo</code></td><td>Yoruba (Ede Yoruba)</td><td>Diacritic awareness (<code>ẹ, ọ, ṣ</code>) &amp; automatic UCS-2 fallback.</td></tr>
+              <tr data-lang="lang"><td><code>ha</code></td><td>Hausa</td><td>Sahel &amp; Northern Nigeria health, farm, and marketplace terminology.</td></tr>
+              <tr data-lang="lang"><td><code>fr</code></td><td>French (Francais)</td><td>Francophone Africa clinical, agritech &amp; mobile balance terms.</td></tr>
+              <tr data-lang="lang"><td><code>en / pcm / nyn</code></td><td>English, Pidgin &amp; Runyankole</td><td>Global baseline + West African Pidgin + Western Uganda vocabulary.</td></tr>
+              <tr data-lang="safety"><td><code>PII-01</code></td><td>Local PII Redaction</td><td>Masks <code>PIN/OTP</code>, phone numbers, and national IDs before cloud calls.</td></tr>
+              <tr data-lang="safety"><td><code>ESC-01</code></td><td>Extension Worker Escalation</td><td>Flags urgency keywords and enqueues SMS receipt into SQLite WAL.</td></tr>
+              <tr data-lang="carrier"><td><code>GSM-7 / UCS-2</code></td><td>SMS &amp; USSD Packetizer</td><td>Enforces 182/160 GSM-7 vs 80/70 UCS-2 boundaries cleanly.</td></tr>
+              <tr data-lang="carrier"><td><code>VAD-16K</code></td><td>Pure Python PCM Telemetry</td><td>Extracts RMS energy, SNR dB, and 16 kbps Opus data footprint.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-links">
+          <a href="./">home</a><span>·</span>
+          <a href="./studio.html">studio</a><span>·</span>
+          <a href="./proof.html">proof</a><span>·</span>
+          <a href="./docs.html">docs</a>
+        </div>
+        <div>MIT Licensed · Zero external runtime lock-in</div>
+      </footer>
+    </div>
+    <script src="./app.js?v=0.1.0" defer></script>
+  </body>
+</html>

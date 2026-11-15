@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#fffdf2"/>
+  <rect x="42" y="42" width="1116" height="546" rx="28" fill="#fef3c7" stroke="#1f2421" stroke-width="3.5"/>
+  <rect x="82" y="82" width="290" height="42" rx="21" fill="#e0f2fe" stroke="#082f49" stroke-width="2"/>
+  <text x="227" y="109" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="18" font-weight="700" fill="#082f49" text-anchor="middle">v0.1.0 · OFFLINE VOICE AI</text>
+  <text x="82" y="218" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="78" font-weight="800" letter-spacing="-2" fill="#1f2421">sautimesh</text>
+  <text x="82" y="286" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="30" font-weight="500" fill="#3f4642">Voice-First Multilingual &amp; Code-Switching AI Agent Runtime</text>
+  <text x="82" y="334" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="27" fill="#52525b">Swahili · Luganda · Yoruba · Hausa · French · English · Pidgin · Runyankole</text>
+  <rect x="82" y="418" width="318" height="104" rx="16" fill="#fffdf2" stroke="#1f2421" stroke-width="2.4"/>
+  <text x="110" y="464" font-family="-apple-system, sans-serif" font-size="22" font-weight="700" fill="#b45309">100% Offline Ready</text>
+  <text x="110" y="498" font-family="-apple-system, sans-serif" font-size="18" fill="#52525b">SQLite WAL + Pure Python VAD</text>
+  <rect x="424" y="418" width="330" height="104" rx="16" fill="#7dd3fc" stroke="#1f2421" stroke-width="2.4"/>
+  <text x="452" y="464" font-family="-apple-system, sans-serif" font-size="22" font-weight="700" fill="#082f49">GSM-7 &amp; UCS-2 Safe</text>
+  <text x="452" y="498" font-family="-apple-system, sans-serif" font-size="18" fill="#082f49">SMS Fallback + USSD Paging</text>
+  <rect x="778" y="418" width="330" height="104" rx="16" fill="#facc15" stroke="#1f2421" stroke-width="2.4"/>
+  <text x="806" y="464" font-family="-apple-system, sans-serif" font-size="22" font-weight="700" fill="#451a03">DPG Open AI Card</text>
+  <text x="806" y="498" font-family="-apple-system, sans-serif" font-size="18" fill="#451a03">Local Currency &amp; PII Guards</text>
+</svg>

@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sautimesh"
+version = "0.1.0"
+description = "Voice-first, offline-first multilingual and code-switching AI agent runtime for Africa and the global edge."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+authors = [
+  {name = "Akandwanaho Ivan", email = "codesphereinnovationz@gmail.com"}
+]
+keywords = [
+  "voice-agent",
+  "multilingual",
+  "code-switching",
+  "offline-first",
+  "african-nlp",
+  "swahili",
+  "luganda",
+  "yoruba",
+  "hausa",
+  "mcp",
+  "edge-ai",
+  "digital-public-goods"
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Healthcare Industry",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Communications :: Telephony"
+]
+dependencies = []
+
+[project.optional-dependencies]
+voice = ["faster-whisper>=1.0.0", "piper-tts>=1.2.0", "numpy>=1.26.0"]
+dev = ["pytest>=8.0.0", "ruff>=0.6.0", "mypy>=1.11.0"]
+
+[project.scripts]
+sautimesh = "sautimesh.cli:main"
+
+[project.urls]
+Homepage = "https://codesphere-u.github.io/sautimesh/"
+Repository = "https://github.com/codesphere-u/sautimesh"
+Documentation = "https://codesphere-u.github.io/sautimesh/docs.html"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sautimesh*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+warn_return_any = true
+warn_unused_configs = true

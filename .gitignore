@@ -1,0 +1,14 @@
+.sautimesh/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+dist/
+build/
+growthpilot-out/
+*.db
+*.db-wal
+*.db-shm

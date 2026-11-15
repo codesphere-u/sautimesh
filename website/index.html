@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SautiMesh — Voice-First Offline Multilingual AI Agent Runtime</title>
+    <meta
+      name="description"
+      content="Free, zero-bloat Python voice agent runtime for Africa and the global edge. Supports Swahili, Luganda, Yoruba, Hausa, French, English, Pidgin &amp; Runyankole with offline SQLite durability and DPGA transparency."
+    />
+    <meta
+      name="keywords"
+      content="SautiMesh, offline voice AI agent, African NLP, Swahili AI, Luganda AI, Yoruba AI, Hausa AI, code switching, SQLite store and forward, MCP server"
+    />
+    <meta name="author" content="Akandwanaho Ivan" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#fffdf2" />
+    <link rel="canonical" href="https://codesphere-u.github.io/sautimesh/" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=0.1.0" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codesphere-u.github.io/sautimesh/" />
+    <meta property="og:site_name" content="SautiMesh" />
+    <meta property="og:title" content="SautiMesh — Voice-First Offline Multilingual AI Agent Runtime" />
+    <meta
+      property="og:description"
+      content="Zero-bloat Python engine bridging 16kHz audio VAD, 8-language code-switching, SQLite store-and-forward durability, and local SLM cascades."
+    />
+    <meta property="og:image" content="https://codesphere-u.github.io/sautimesh/og-image.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="SautiMesh Savanna Gold and Atlas Azure social card showing offline multilingual voice AI runtime" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SautiMesh — Voice-First Offline Multilingual AI Agent Runtime" />
+    <meta
+      name="twitter:description"
+      content="Voice-first, offline-first AI agent runtime for Swahili, Luganda, Yoruba, Hausa, French, English &amp; edge deployments."
+    />
+    <meta name="twitter:image" content="https://codesphere-u.github.io/sautimesh/og-image.svg" />
+
+    <link rel="stylesheet" href="./styles.css?v=0.1.0" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://codesphere-u.github.io/sautimesh/#org",
+            "name": "SautiMesh",
+            "url": "https://codesphere-u.github.io/sautimesh/",
+            "sameAs": [
+              "https://github.com/codesphere-u/sautimesh"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://codesphere-u.github.io/sautimesh/#website",
+            "url": "https://codesphere-u.github.io/sautimesh/",
+            "name": "SautiMesh",
+            "publisher": {
+              "@id": "https://codesphere-u.github.io/sautimesh/#org"
+            }
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://codesphere-u.github.io/sautimesh/#software",
+            "name": "SautiMesh",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "macOS, Linux, Windows, Android Termux",
+            "softwareVersion": "0.1.0",
+            "license": "https://opensource.org/licenses/MIT",
+            "url": "https://codesphere-u.github.io/sautimesh/",
+            "downloadUrl": "https://github.com/codesphere-u/sautimesh",
+            "description": "Voice-first, offline-first multilingual and code-switching AI agent runtime with SQLite WAL store-and-forward queues, GSM-7/UCS-2 carrier packing, and DPGA transparency.",
+            "publisher": {
+              "@id": "https://codesphere-u.github.io/sautimesh/#org"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How does SautiMesh handle intermittent connectivity and power dropouts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Every turn executes offline-first playbooks using SQLite WAL persistence and an idempotent store-and-forward outbox queue, syncing safely without split-brain corruption when cellular service returns."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which African and global languages does SautiMesh support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SautiMesh ships built-in lexicons and code-switch analyzers for Swahili, Luganda, Yoruba, Hausa, French, English, Nigerian Pidgin, and Runyankole, plus adapters for Sunbird Sunflower v2, whisper.cpp, MMS, and Piper ONNX."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does SautiMesh prevent runaway cloud API costs?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Its 3-stage cascade resolves routine turns locally in 0 ms, supports local SLMs via Ollama or llama.cpp, redacts phone numbers and PINs before cloud calls, and enforces daily local-currency spend limits."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page-col">
+      <header class="site-header">
+        <a class="brand-link" href="./" aria-label="SautiMesh home">
+          <svg class="brand-wordmark-svg" width="186" height="36" viewBox="0 0 212 40" fill="none" role="img" aria-label="sautimesh">
+            <rect x="2" y="5" width="28" height="28" rx="8" fill="#facc15" stroke="#1f2421" stroke-width="2.6" />
+            <rect x="12" y="10.5" width="8" height="12" rx="4" fill="#7dd3fc" stroke="#1f2421" stroke-width="2" />
+            <path d="M9.5 19.5c0 3.8 2.9 6.5 6.5 6.5s6.5-2.7 6.5-6.5M16 26v3.5" stroke="#1f2421" stroke-width="2" stroke-linecap="round" />
+            <text x="39" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="23" font-weight="800" letter-spacing="-0.6" fill="none" stroke="#1f2421" stroke-width="4" stroke-linejoin="round">sautimesh</text>
+            <text x="39" y="28" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="23" font-weight="800" letter-spacing="-0.6" fill="#facc15">sautimesh</text>
+          </svg>
+        </a>
+
+        <nav class="header-nav" aria-label="Primary navigation">
+          <a href="./studio.html">studio</a>
+          <a href="./proof.html">proof</a>
+          <a href="./docs.html">docs</a>
+          <a href="./rules.html">rules</a>
+          <a
+            class="icon-link"
+            href="https://github.com/codesphere-u/sautimesh"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="SautiMesh on GitHub"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              />
+            </svg>
+          </a>
+          <a
+            class="nav-pill"
+            href="https://github.com/codesphere-u/sautimesh/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            v0.1.0
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero-duo" aria-labelledby="hero-title">
+          <div class="mascot-wrap">
+            <!-- Original SautiMesh acoustic radio scout mascot in Savanna Gold & Atlas Azure -->
+            <svg
+              width="136"
+              height="136"
+              viewBox="0 0 180 180"
+              fill="none"
+              role="img"
+              aria-label="SautiMesh acoustic radio mascot broadcasting multilingual voice waves"
+            >
+              <ellipse cx="90" cy="158" rx="46" ry="8" fill="#1f2421" fill-opacity="0.1" />
+              <path d="M68 128L62 146" stroke="#1f2421" stroke-width="4" stroke-linecap="round" />
+              <ellipse cx="56" cy="148" rx="12" ry="7" fill="#451a03" stroke="#1f2421" stroke-width="3.5" />
+              <path d="M110 128L116 146" stroke="#1f2421" stroke-width="4" stroke-linecap="round" />
+              <ellipse cx="122" cy="148" rx="12" ry="7" fill="#451a03" stroke="#1f2421" stroke-width="3.5" />
+
+              <path d="M90 32V16" stroke="#1f2421" stroke-width="3.5" stroke-linecap="round" />
+              <circle cx="90" cy="13" r="6" fill="#7dd3fc" stroke="#1f2421" stroke-width="3.2" />
+              <path d="M68 16C61 10 56 10 52 14M112 16C119 10 124 10 128 14" stroke="#082f49" stroke-width="2.5" stroke-linecap="round" />
+
+              <rect x="44" y="34" width="92" height="96" rx="34" fill="#facc15" stroke="#1f2421" stroke-width="4" />
+              <rect x="57" y="47" width="66" height="58" rx="22" fill="#fffdf2" stroke="#1f2421" stroke-width="3" />
+
+              <circle cx="77" cy="72" r="6" fill="#1f2421" />
+              <circle cx="79" cy="70" r="2" fill="#fffdf2" />
+              <circle cx="103" cy="72" r="6" fill="#1f2421" />
+              <circle cx="105" cy="70" r="2" fill="#fffdf2" />
+              <ellipse cx="67" cy="83" rx="4.5" ry="2.5" fill="#7dd3fc" />
+              <ellipse cx="113" cy="83" rx="4.5" ry="2.5" fill="#7dd3fc" />
+              <path d="M81 86C85 92 95 92 99 86" stroke="#1f2421" stroke-width="3.2" stroke-linecap="round" />
+
+              <rect x="72" y="112" width="36" height="10" rx="5" fill="#7dd3fc" stroke="#1f2421" stroke-width="2.6" />
+              <path d="M44 74C30 70 28 58 34 52C39 47 45 60 46 66" fill="#fffdf2" stroke="#1f2421" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M136 78C149 74 152 62 146 54" stroke="#1f2421" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M150 44C158 51 158 67 150 74M159 38C170 49 170 71 159 82" stroke="#082f49" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+
+          <div class="hero-copy">
+            <h1 id="hero-title">voice agents that never lose signal</h1>
+            <p class="hero-sub">
+              the offline-first multilingual &amp; code-switching agent runtime for Africa and the global edge
+            </p>
+          </div>
+        </section>
+
+        <section class="cta-area" aria-label="Install SautiMesh">
+          <div class="split-btn-group">
+            <button type="button" class="split-main" id="cta-main-btn">
+              <strong>install sautimesh</strong>
+              <span id="hero-cmd-sub">python 3.11+ · sqlite wal · mcp · v0.1.0</span>
+            </button>
+            <button
+              type="button"
+              class="split-caret"
+              id="cta-caret-btn"
+              aria-expanded="false"
+              aria-controls="cta-popover"
+              aria-label="Choose runtime target"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          <code class="cmd-caption" id="hero-cmd">pip install -e git+https://github.com/codesphere-u/sautimesh.git#egg=sautimesh</code>
+
+          <div class="cta-popover" id="cta-popover" role="region" aria-label="Installation options" hidden>
+            <div class="pop-tabs" role="tablist" aria-label="Runtime mode">
+              <button type="button" class="pop-tab active" role="tab" aria-selected="true" data-persona="cli">CLI</button>
+              <button type="button" class="pop-tab" role="tab" aria-selected="false" data-persona="turn">Voice Turn</button>
+              <button type="button" class="pop-tab" role="tab" aria-selected="false" data-persona="eval">Workbench</button>
+              <button type="button" class="pop-tab" role="tab" aria-selected="false" data-persona="mcp">MCP</button>
+            </div>
+
+            <div class="pop-cmd">
+              <code id="pop-cmd-code">pip install -e git+https://github.com/codesphere-u/sautimesh.git#egg=sautimesh</code>
+              <button type="button" class="action-mini" id="pop-copy-btn">Copy</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="preview-frame" aria-label="SautiMesh preview">
+          <div class="frame-bar">
+            <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="frame-tabs" role="tablist" aria-label="Preview view">
+              <button type="button" class="frame-tab active" role="tab" aria-selected="true" data-homeview="term">Voice Turn</button>
+              <button type="button" class="frame-tab" role="tab" aria-selected="false" data-homeview="codeswitch">Code-Switch</button>
+              <button type="button" class="frame-tab" role="tab" aria-selected="false" data-homeview="dpg">DPG Card</button>
+            </div>
+            <a class="frame-open-link" href="./studio.html">open studio →</a>
+          </div>
+
+          <div class="preview-body">
+            <pre class="code-block" id="home-preview-code">$ sautimesh chat --text "Habari daktari, mtoto ana fever kali leo" --currency KES
+
+SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
+  Detected Langs:    sw + en (CSI: 0.429)
+  Domain / Intent:   health_triage / pediatric_fever_triage
+  SMS Fallback:      GSM-7 · 1 segment (108/160 chars)
+  Reply (Swahili):   "Kwa homa ya mtoto, mpime joto leo, mpe maji mengi safi,
+                      na umpeleke kliniki kupima malaria kabla ya kumeza dawa."</pre>
+          </div>
+
+          <div class="preview-foot">
+            <span>8 language packs · sqlite wal outbox · zero runtime lock-in</span>
+            <div class="preview-foot-links">
+              <a href="./studio.html">Try Voice Simulator</a>
+              <a href="./docs.html">Read docs</a>
+            </div>
+          </div>
+        </section>
+
+        <hr class="hairline" />
+
+        <section class="editorial-grid" aria-label="Core principles">
+          <div>
+            <h2>Offline First</h2>
+            <p>
+              Built for the 63% coverage usage gap and intermittent power: routine health, crop, and mobile money turns resolve locally in 0 ms with SQLite WAL queuing.
+            </p>
+          </div>
+
+          <div>
+            <h2>Code-Switch Ready</h2>
+            <p>
+              Real communities mix Swahili, Luganda, Yoruba, Hausa, French, Pidgin, Runyankole, and English mid-sentence — SautiMesh tags every token cleanly before reasoning.
+            </p>
+          </div>
+
+          <div>
+            <h2>Zero Budget Shock</h2>
+            <p>
+              PII (phone numbers, PINs, national IDs) is stripped locally, SMS/USSD character budgets (GSM-7 vs UCS-2) are computed automatically, and FX spend caps block cloud runaway.
+            </p>
+          </div>
+
+          <div>
+            <h2>DPG Transparent</h2>
+            <p>
+              MIT licensed, pure Python 3.11+ stdlib core with one-command Digital Public Goods Model &amp; Limitation Card export and pluggable Sunflower, Whisper, Piper &amp; Ollama adapters.
+            </p>
+          </div>
+        </section>
+
+        <hr class="hairline" />
+
+        <section class="ecosystem-section" aria-labelledby="eco-title">
+          <h2 id="eco-title">Works Everywhere</h2>
+          <p class="ecosystem-sub">
+            Run on low-cost Linux boxes, Raspberry Pi clinics, Android Termux field phones, or wire directly into coding agents via stdio MCP.
+          </p>
+
+          <div class="eco-badges" aria-label="Supported integrations">
+            <a class="eco-item" href="./docs.html#quickstart">
+              <span class="eco-circle" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+              </span>
+              <span>Python CLI</span>
+            </a>
+
+            <a class="eco-item" href="./docs.html#speech">
+              <span class="eco-circle" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 19v3"/></svg>
+              </span>
+              <span>ASR / TTS</span>
+            </a>
+
+            <a class="eco-item" href="./docs.html#mcp">
+              <span class="eco-circle" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 10h8M8 14h5"/></svg>
+              </span>
+              <span>MCP Server</span>
+            </a>
+
+            <a class="eco-item" href="./studio.html">
+              <span class="eco-circle" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>
+              </span>
+              <span>Voice Studio</span>
+            </a>
+          </div>
+
+          <p class="inline-cta-links">
+            Inspect our <a href="./proof.html">field research &amp; 7/7 benchmark proof</a>, test utterances in the <a href="./studio.html">voice simulator</a>, or inspect all <a href="./rules.html">8 language &amp; safety rules</a>.
+          </p>
+        </section>
+
+        <hr class="hairline" />
+
+        <section id="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title" class="sec-title">questions</h2>
+          <div class="faq-stack">
+            <details class="faq-item">
+              <summary>How does SautiMesh handle intermittent connectivity and power dropouts?</summary>
+              <p>
+                Every turn executes offline-first playbooks using SQLite WAL persistence and an idempotent store-and-forward outbox queue, syncing safely without split-brain corruption when cellular service returns.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>Which African and global languages does SautiMesh support?</summary>
+              <p>
+                SautiMesh ships built-in lexicons and code-switch analyzers for Swahili, Luganda, Yoruba, Hausa, French, English, Nigerian Pidgin, and Runyankole, plus adapters for Sunbird Sunflower v2, whisper.cpp, MMS, and Piper ONNX.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>How does SautiMesh prevent runaway cloud API costs?</summary>
+              <p>
+                Its 3-stage cascade resolves routine turns locally in 0 ms, supports local SLMs via Ollama or llama.cpp, redacts phone numbers and PINs before cloud calls, and enforces daily local-currency spend limits.
+              </p>
+            </details>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-links">
+          <a href="./studio.html">studio</a>
+          <span>·</span>
+          <a href="./proof.html">proof</a>
+          <span>·</span>
+          <a href="./docs.html">docs</a>
+          <span>·</span>
+          <a href="./rules.html">rules</a>
+          <span>·</span>
+          <a href="https://github.com/codesphere-u/sautimesh" target="_blank" rel="noopener noreferrer">github</a>
+          <span>·</span>
+          <a href="./llms.txt">llms.txt</a>
+          <span>·</span>
+          <a href="./sitemap.xml">sitemap.xml</a>
+        </div>
+        <div>MIT Licensed · Built by Akandwanaho Ivan for Africa &amp; the Global Edge</div>
+      </footer>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js?v=0.1.0" defer></script>
+  </body>
+</html>
