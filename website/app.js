@@ -217,13 +217,24 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
     });
   });
 
-  // Homepage Interactive Language Pill Cloud
+  // Homepage Interactive Language Pill Cloud + Sync Console Output
   const langPreview = document.getElementById("lang-sample-note");
+  const LANG_CONSOLE_SAMPLES = {
+    sw: `$ sautimesh chat --text "Habari daktari, mtoto ana fever kali leo" --currency KES\n\nSautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)\n  Detected Langs:    sw + en (CSI: 0.429)\n  SMS Fallback:      GSM-7 · 1 segment (108/160 chars)\n  Reply (Swahili):   "Kwa homa ya mtoto, mpime joto leo, mpe maji mengi safi."`,
+    lg: `$ sautimesh chat --text "Ssebo obuwuka bungi mu kasooli farm yange" --currency UGX\n\nSautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · UGX 0.0)\n  Detected Langs:    lg + en (CSI: 0.333)\n  SMS Fallback:      GSM-7 · 1 segment (92/160 chars)\n  Reply (Luganda):   "Kebera amababi ga kasooli enkya, kozesa evvu oba neem."`,
+    yo: `$ sautimesh analyze "Ekaaro omo mi ni iba PIN: 4829"\n\n  Detected Langs:    yo (Yoruba) · Diacritics -> UCS-2\n  PII Scrubbed:      PIN=[REDACTED]\n  USSD Envelope:     END 1 page (70 chars limit respected offline)`,
+    ha: `$ sautimesh chat --text "Sannu malam, kwari suna cin masara" --currency NGN\n\nSautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · NGN 0.0)\n  Detected Langs:    ha (Hausa) · Domain: agri_extension\n  SMS Fallback:      GSM-7 · 1 segment (96/160 chars)`,
+  };
   document.querySelectorAll(".lang-chip[data-lang-note]").forEach((chip) => {
     chip.addEventListener("click", () => {
       document.querySelectorAll(".lang-chip[data-lang-note]").forEach((c) => c.classList.remove("active"));
       chip.classList.add("active");
       if (langPreview) langPreview.textContent = chip.getAttribute("data-lang-note");
+      const m = /\((\w+)\)/.exec(chip.textContent || "");
+      const codeKey = m ? m[1] : "";
+      if (previewCode && LANG_CONSOLE_SAMPLES[codeKey]) {
+        previewCode.textContent = LANG_CONSOLE_SAMPLES[codeKey];
+      }
       pulsePipeline("home-pipeline", "home-eq", chip.textContent);
     });
   });
