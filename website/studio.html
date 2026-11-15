@@ -89,6 +89,23 @@
             </div>
           </div>
 
+          <div class="eq-shell" style="margin: 0 0 0.85rem;">
+            <button type="button" id="studio-audio-btn" class="action-mini">Hear Cadence</button>
+            <div class="eq-strip" id="studio-eq" aria-hidden="true">
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+            </div>
+          </div>
+
+          <div class="mesh-pipeline" id="studio-pipeline" style="margin: 0 0 0.85rem;">
+            <div class="mesh-stage"><small>01 · VAD 16kHz</small><strong>PCM Frame Check</strong><span>16 kbps footprint</span></div>
+            <div class="mesh-stage"><small>02 · Lexicon</small><strong>Token Code-Switch</strong><span>8 languages live</span></div>
+            <div class="mesh-stage active"><small>03 · Guardrails</small><strong>PII + Offline Playbook</strong><span>0 ms · $0.00</span></div>
+            <div class="mesh-stage sky-hit"><small>04 · Persistence</small><strong>GSM-7 / WAL Outbox</strong><span>Syncs when online</span></div>
+          </div>
+
           <div class="score-row">
             <div class="score-cell"><span>Langs</span><strong id="st-lang">—</strong></div>
             <div class="score-cell"><span>CSI</span><strong id="st-csi">0.00</strong></div>
@@ -98,6 +115,7 @@
           </div>
 
           <p class="diag-note" id="st-diag">Ready.</p>
+          <div id="studio-token-stream" class="token-stream" aria-live="polite"></div>
           <pre class="code-block" id="st-json"></pre>
         </section>
 

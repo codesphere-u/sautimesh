@@ -1,4 +1,4 @@
-/* SautiMesh Interactive Frontend Controller (0 external dependencies) */
+/* SautiMesh Interactive & Animated Voice Mesh Controller (0 external dependencies) */
 (function () {
   "use strict";
 
@@ -8,7 +8,7 @@
     el.textContent = msg;
     el.classList.add("show");
     clearTimeout(el._timer);
-    el._timer = setTimeout(() => el.classList.remove("show"), 2000);
+    el._timer = setTimeout(() => el.classList.remove("show"), 2200);
   }
 
   function copyText(text) {
@@ -28,10 +28,91 @@
 
   document.addEventListener("click", (e) => {
     const copyBtn = e.target.closest("[data-copy]");
-    if (copyBtn) {
-      copyText(copyBtn.getAttribute("data-copy"));
-    }
+    if (copyBtn) copyText(copyBtn.getAttribute("data-copy"));
   });
+
+  // Pure WebAudio gentle syllable-cadence feedback (zero external audio files needed)
+  function playCadenceSound(text) {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    try {
+      const ctx = new AudioCtx();
+      const words = (text || "sautimesh ready").trim().split(/\s+/).slice(0, 7);
+      const now = ctx.currentTime;
+      words.forEach((word, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        const freq = 220 + ((word.length * 37 + i * 29) % 190);
+        const start = now + i * 0.11;
+        osc.frequency.setValueAtTime(freq, start);
+        gain.gain.setValueAtTime(0.001, start);
+        gain.gain.exponentialRampToValueAtTime(0.06, start + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + 0.09);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(start);
+        osc.stop(start + 0.095);
+      });
+    } catch (_err) {
+      /* Ignore autoplay policies gracefully */
+    }
+  }
+
+  // Sequential Pipeline & Equalizer Animation Runner
+  function pulsePipeline(containerId, eqId, playAudioText) {
+    const pipe = document.getElementById(containerId);
+    const eq = document.getElementById(eqId);
+    if (eq) {
+      eq.classList.add("playing");
+      clearTimeout(eq._stopTimer);
+      eq._stopTimer = setTimeout(() => eq.classList.remove("playing"), 1450);
+    }
+    if (playAudioText) playCadenceSound(playAudioText);
+    if (!pipe) return;
+    const stages = Array.from(pipe.querySelectorAll(".mesh-stage"));
+    stages.forEach((s) => s.classList.remove("active"));
+    stages.forEach((stage, idx) => {
+      setTimeout(() => {
+        stages.forEach((s) => s.classList.remove("active"));
+        stage.classList.add("active");
+      }, idx * 290);
+    });
+  }
+
+  // Scroll Reveal + Animated Metric Progress Bars
+  const reveals = document.querySelectorAll(".reveal");
+  const metricBars = document.querySelectorAll(".metric-bar-fill[data-width]");
+  function revealElement(el) {
+    el.classList.add("in-view");
+  }
+  function fillBars() {
+    metricBars.forEach((bar) => {
+      const target = bar.getAttribute("data-width") || "0%";
+      requestAnimationFrame(() => {
+        bar.style.width = target;
+      });
+    });
+  }
+
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            revealElement(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+    reveals.forEach((el) => obs.observe(el));
+    setTimeout(fillBars, 120);
+  } else {
+    reveals.forEach(revealElement);
+    fillBars();
+  }
 
   // Homepage install popover & CTA
   const mainBtn = document.getElementById("cta-main-btn");
@@ -86,7 +167,7 @@
     popCopyBtn.addEventListener("click", () => copyText(popCmdCode.textContent.trim()));
   }
 
-  // Homepage preview tabs
+  // Homepage Interactive Voice Preview & Equalizer
   const PREVIEW_VIEWS = {
     term: `$ sautimesh chat --text "Habari daktari, mtoto ana fever kali leo" --currency KES
 
@@ -115,6 +196,12 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
   };
 
   const previewCode = document.getElementById("home-preview-code");
+  const playDemoBtn = document.getElementById("play-demo-btn");
+  if (playDemoBtn) {
+    playDemoBtn.addEventListener("click", () => {
+      pulsePipeline("home-pipeline", "home-eq", "Habari daktari mtoto ana fever");
+    });
+  }
   document.querySelectorAll(".frame-tab[data-homeview]").forEach((btn) => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".frame-tab[data-homeview]").forEach((b) => {
@@ -126,6 +213,18 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
       if (previewCode) {
         previewCode.textContent = PREVIEW_VIEWS[btn.getAttribute("data-homeview")] || PREVIEW_VIEWS.term;
       }
+      pulsePipeline("home-pipeline", "home-eq", null);
+    });
+  });
+
+  // Homepage Interactive Language Pill Cloud
+  const langPreview = document.getElementById("lang-sample-note");
+  document.querySelectorAll(".lang-chip[data-lang-note]").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll(".lang-chip[data-lang-note]").forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      if (langPreview) langPreview.textContent = chip.getAttribute("data-lang-note");
+      pulsePipeline("home-pipeline", "home-eq", chip.textContent);
     });
   });
 
@@ -239,10 +338,13 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
     });
   });
 
-  // Studio Simulator (mirrors sautimesh.languages + sautimesh.cascade deterministically in browser)
+  // Animated Studio Simulator (studio.html)
   const studioInput = document.getElementById("studio-utterance");
   const studioCurrency = document.getElementById("studio-currency");
   const studioBtn = document.getElementById("studio-run-btn");
+  const studioAudioBtn = document.getElementById("studio-audio-btn");
+  const tokenStreamEl = document.getElementById("studio-token-stream");
+
   if (studioInput && studioBtn) {
     const LEX = {
       sw: { habari: "hello", mtoto: "child", homa: "fever", kliniki: "clinic", dawa: "medicine", wadudu: "pests", mahindi: "maize", fedha: "money", salio: "balance", haraka: "urgent" },
@@ -278,7 +380,7 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
       },
     };
 
-    function runStudioSimulation() {
+    function runStudioSimulation(withSound) {
       const raw = studioInput.value.trim();
       const currency = studioCurrency ? studioCurrency.value : "UGX";
       const tokens = raw.split(/\s+/).filter(Boolean);
@@ -287,8 +389,11 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
       let prevLang = null;
       let switches = 0;
 
-      tokens.forEach((tok) => {
+      if (tokenStreamEl) tokenStreamEl.textContent = "";
+
+      tokens.forEach((tok, idx) => {
         const clean = tok.toLowerCase().replace(/^[^\w]+|[^\w]+$/g, "");
+        const isPinOrPhone = /^\d{4,6}$/.test(clean) || /\+?\d{9,13}/.test(tok);
         let found = "en";
         let norm = clean;
         for (const [code, map] of Object.entries(LEX)) {
@@ -300,8 +405,20 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
         }
         if (prevLang && found !== prevLang) switches += 1;
         prevLang = found;
-        if (!langs.includes(found)) langs.push(found);
+        if (!langs.includes(found) && !isPinOrPhone) langs.push(found);
         norms.push(norm);
+
+        if (tokenStreamEl) {
+          const pill = document.createElement("span");
+          pill.className = "tok-pill " + (isPinOrPhone ? "tok-pii" : found !== "en" ? "tok-local" : "");
+          pill.style.animationDelay = Math.min(idx * 35, 350) + "ms";
+          const wordText = document.createTextNode((isPinOrPhone ? "[REDACTED]" : tok) + " ");
+          const tag = document.createElement("em");
+          tag.textContent = isPinOrPhone ? "pii" : found;
+          pill.appendChild(wordText);
+          pill.appendChild(tag);
+          tokenStreamEl.appendChild(pill);
+        }
       });
 
       const primary = langs[0] || "en";
@@ -318,7 +435,7 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
       const isAscii = /^[\x20-\x7E\s]+$/.test(spoken);
       const enc = isAscii ? "GSM-7" : "UCS-2";
 
-      document.getElementById("st-lang").textContent = langs.join(" + ");
+      document.getElementById("st-lang").textContent = (langs.length ? langs : ["en"]).join(" + ");
       document.getElementById("st-csi").textContent = csi;
       document.getElementById("st-tier").textContent = "offline_rules";
       document.getElementById("st-enc").textContent = enc;
@@ -338,21 +455,26 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
         null,
         2
       );
+
+      pulsePipeline("studio-pipeline", "studio-eq", withSound ? spoken : null);
     }
 
-    studioBtn.addEventListener("click", runStudioSimulation);
+    studioBtn.addEventListener("click", () => runStudioSimulation(false));
+    if (studioAudioBtn) {
+      studioAudioBtn.addEventListener("click", () => runStudioSimulation(true));
+    }
     document.querySelectorAll(".chip-btn[data-sample]").forEach((chip) => {
       chip.addEventListener("click", () => {
         document.querySelectorAll(".chip-btn[data-sample]").forEach((c) => c.classList.remove("active"));
         chip.classList.add("active");
         studioInput.value = chip.getAttribute("data-sample");
-        runStudioSimulation();
+        runStudioSimulation(false);
       });
     });
-    runStudioSimulation();
+    runStudioSimulation(false);
   }
 
-  // Rules table search & language filter
+  // Filterable tables across rules.html & proof.html
   const rulesSearch = document.getElementById("rules-search");
   const rulesLang = document.getElementById("rules-lang");
   const rulesRows = document.querySelectorAll("tbody tr[data-lang]");
@@ -369,4 +491,16 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
   }
   if (rulesSearch) rulesSearch.addEventListener("input", filterRules);
   if (rulesLang) rulesLang.addEventListener("change", filterRules);
+
+  document.querySelectorAll(".chip-btn[data-proof-filter]").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll(".chip-btn[data-proof-filter]").forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      const target = chip.getAttribute("data-proof-filter");
+      document.querySelectorAll("tbody tr[data-proof-cat]").forEach((row) => {
+        const cat = row.getAttribute("data-proof-cat");
+        row.style.display = target === "all" || cat === target ? "" : "none";
+      });
+    });
+  });
 })();

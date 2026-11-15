@@ -1555,3 +1555,411 @@ details.faq-item p {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* =====================================================================
+   SautiMesh Live Voice Motion, Equalizer, Pipeline & Rich Table System
+   ===================================================================== */
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes wave-arc {
+  0%, 100% { opacity: 0.28; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes eq-breathe {
+  0%, 100% { transform: scaleY(0.28); }
+  50% { transform: scaleY(0.82); }
+}
+
+@keyframes eq-active {
+  0%, 100% { transform: scaleY(0.24); }
+  35% { transform: scaleY(1); }
+  70% { transform: scaleY(0.55); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(250, 204, 21, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+}
+
+@keyframes chapter-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes token-pop {
+  from { opacity: 0; transform: translateY(5px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.mascot-wrap svg {
+  animation: mascot-float 5.5s ease-in-out infinite;
+}
+.mascot-arc-1 {
+  transform-origin: 150px 59px;
+  animation: wave-arc 2.2s ease-in-out infinite;
+}
+.mascot-arc-2 {
+  transform-origin: 159px 60px;
+  animation: wave-arc 2.2s ease-in-out infinite 0.45s;
+}
+
+.doc-chapter:not([hidden]) {
+  animation: chapter-in 0.28s ease-out both;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.48s ease, transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive Voice Pipeline Ribbon & Live Equalizer */
+.pipeline-card {
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-xl);
+  background: var(--tint-2);
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.pipeline-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.eq-shell {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--rule-soft);
+  border-radius: 12px;
+  padding: 0.6rem 0.9rem;
+}
+
+.eq-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 30px;
+  flex: 1 1 auto;
+}
+
+.eq-bar {
+  flex: 1 1 0;
+  min-width: 4px;
+  max-width: 10px;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--sky-dark) 0%, var(--accent-hover) 100%);
+  transform-origin: center bottom;
+  animation: eq-breathe 1.6s ease-in-out infinite;
+}
+
+.eq-bar:nth-child(even) {
+  background: linear-gradient(180deg, var(--accent-rail) 0%, var(--accent) 100%);
+  animation-duration: 1.25s;
+}
+
+.eq-strip.playing .eq-bar {
+  animation-name: eq-active;
+  animation-duration: 0.65s;
+}
+
+.eq-bar:nth-child(3n) { animation-delay: 0.14s; }
+.eq-bar:nth-child(4n) { animation-delay: 0.28s; }
+.eq-bar:nth-child(5n) { animation-delay: 0.42s; }
+
+.mesh-pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.mesh-stage {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 11px;
+  padding: 0.72rem 0.78rem;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+  min-width: 0;
+}
+
+.mesh-stage small {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-55);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.mesh-stage strong {
+  display: block;
+  font-size: 0.86rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.mesh-stage span {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--text-70);
+  margin-top: 0.15rem;
+}
+
+.mesh-stage.active {
+  background: var(--accent-light);
+  border-color: var(--accent-rail);
+  transform: translateY(-2px);
+  animation: pulse-ring 1.6s ease-out infinite;
+}
+
+.mesh-stage.active.sky-hit {
+  background: var(--sky-light);
+  border-color: var(--sky-dark);
+}
+
+/* Interactive Language Pill Cloud */
+.lang-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  justify-content: center;
+}
+
+.lang-chip {
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  color: var(--text);
+  padding: 0.34rem 0.78rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease;
+}
+
+.lang-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--sky-dark);
+  background: var(--sky-light);
+}
+
+.lang-chip.active {
+  background: var(--accent);
+  border-color: var(--accent-rail);
+  color: var(--accent-dark);
+}
+
+/* Token-by-Token Code-Switch Visualizer in studio.html */
+.token-stream {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin: 0 0 0.85rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--bg);
+  border: 1px solid var(--rule-soft);
+  border-radius: 10px;
+}
+
+.tok-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.24rem 0.58rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid var(--rule);
+  background: var(--tint-2);
+  animation: token-pop 0.24s ease-out both;
+}
+
+.tok-pill em {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.08rem 0.34rem;
+  border-radius: 5px;
+  background: var(--sky-light);
+  color: var(--sky-dark);
+}
+
+.tok-pill.tok-local em {
+  background: var(--accent);
+  color: var(--accent-dark);
+}
+
+.tok-pill.tok-pii {
+  background: var(--bad-bg);
+  border-color: rgba(153, 27, 27, 0.28);
+}
+
+.tok-pill.tok-pii em {
+  background: var(--bad-ink);
+  color: #fffdf2;
+}
+
+/* Rich Card-Wrapped Animated Data Tables (proof.html, rules.html, docs.html) */
+.mesh-table-card {
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--bg);
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(31, 36, 33, 0.04);
+  margin: 0.9rem 0 1.45rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.mesh-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mesh-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.mesh-table thead th {
+  background: var(--tint-4);
+  color: var(--text-70);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.78rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.mesh-table tbody tr {
+  transition: background 0.16s ease, box-shadow 0.16s ease;
+}
+
+.mesh-table tbody tr:hover {
+  background: rgba(250, 204, 21, 0.11);
+  box-shadow: inset 3px 0 0 var(--accent-rail);
+}
+
+.mesh-table td {
+  padding: 0.82rem 1rem;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: middle;
+  color: var(--text);
+}
+
+.mesh-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Animated Field Evidence Metric Bars (proof.html) */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.metric-card {
+  border: 1px solid var(--rule);
+  border-radius: 13px;
+  background: var(--tint-2);
+  padding: 1rem 1.15rem;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-rail);
+}
+
+.metric-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.metric-head strong {
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.metric-head span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-rail);
+}
+
+.metric-bar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--tint-8);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.55rem;
+}
+
+.metric-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-rail) 100%);
+  width: 0;
+  transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.metric-bar-fill.sky {
+  background: linear-gradient(90deg, var(--sky) 0%, var(--sky-dark) 100%);
+}
+
+@media (max-width: 640px) {
+  .mesh-pipeline,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mascot-wrap svg,
+  .mascot-arc-1,
+  .mascot-arc-2,
+  .eq-bar,
+  .mesh-stage.active {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+

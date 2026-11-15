@@ -64,24 +64,26 @@
           </select>
         </div>
 
-        <div class="doc-table-wrap">
-          <table class="doc-table">
-            <thead>
-              <tr><th>Code</th><th>Rule / Pack</th><th>Guarantee</th></tr>
-            </thead>
-            <tbody>
-              <tr data-lang="lang"><td><code>sw</code></td><td>Swahili (Kiswahili)</td><td>Token glossary across clinic triage, crops, pests, mobile money.</td></tr>
-              <tr data-lang="lang"><td><code>lg</code></td><td>Luganda (Oluganda)</td><td>Supports Kampala &amp; central Uganda code-switching + urgent terms.</td></tr>
-              <tr data-lang="lang"><td><code>yo</code></td><td>Yoruba (Ede Yoruba)</td><td>Diacritic awareness (<code>ẹ, ọ, ṣ</code>) &amp; automatic UCS-2 fallback.</td></tr>
-              <tr data-lang="lang"><td><code>ha</code></td><td>Hausa</td><td>Sahel &amp; Northern Nigeria health, farm, and marketplace terminology.</td></tr>
-              <tr data-lang="lang"><td><code>fr</code></td><td>French (Francais)</td><td>Francophone Africa clinical, agritech &amp; mobile balance terms.</td></tr>
-              <tr data-lang="lang"><td><code>en / pcm / nyn</code></td><td>English, Pidgin &amp; Runyankole</td><td>Global baseline + West African Pidgin + Western Uganda vocabulary.</td></tr>
-              <tr data-lang="safety"><td><code>PII-01</code></td><td>Local PII Redaction</td><td>Masks <code>PIN/OTP</code>, phone numbers, and national IDs before cloud calls.</td></tr>
-              <tr data-lang="safety"><td><code>ESC-01</code></td><td>Extension Worker Escalation</td><td>Flags urgency keywords and enqueues SMS receipt into SQLite WAL.</td></tr>
-              <tr data-lang="carrier"><td><code>GSM-7 / UCS-2</code></td><td>SMS &amp; USSD Packetizer</td><td>Enforces 182/160 GSM-7 vs 80/70 UCS-2 boundaries cleanly.</td></tr>
-              <tr data-lang="carrier"><td><code>VAD-16K</code></td><td>Pure Python PCM Telemetry</td><td>Extracts RMS energy, SNR dB, and 16 kbps Opus data footprint.</td></tr>
-            </tbody>
-          </table>
+        <div class="mesh-table-card">
+          <div class="mesh-table-scroll">
+            <table class="mesh-table">
+              <thead>
+                <tr><th>Code</th><th>Rule / Pack</th><th>Guarantee</th><th>Layer</th></tr>
+              </thead>
+              <tbody>
+                <tr data-lang="lang"><td><code>sw</code></td><td>Swahili (Kiswahili)</td><td>Token glossary across clinic triage, crops, pests, mobile money.</td><td><span class="pill pill-good">GSM-7 Ready</span></td></tr>
+                <tr data-lang="lang"><td><code>lg</code></td><td>Luganda (Oluganda)</td><td>Supports Kampala &amp; central Uganda code-switching + urgent terms.</td><td><span class="pill pill-good">GSM-7 Ready</span></td></tr>
+                <tr data-lang="lang"><td><code>yo</code></td><td>Yoruba (Ede Yoruba)</td><td>Diacritic awareness (<code>ẹ, ọ, ṣ</code>) &amp; automatic UCS-2 fallback.</td><td><span class="pill pill-sky">UCS-2 Safe</span></td></tr>
+                <tr data-lang="lang"><td><code>ha</code></td><td>Hausa</td><td>Sahel &amp; Northern Nigeria health, farm, and marketplace terminology.</td><td><span class="pill pill-good">GSM-7 Ready</span></td></tr>
+                <tr data-lang="lang"><td><code>fr</code></td><td>French (Francais)</td><td>Francophone Africa clinical, agritech &amp; mobile balance terms.</td><td><span class="pill pill-good">GSM-7 / UCS-2</span></td></tr>
+                <tr data-lang="lang"><td><code>en / pcm / nyn</code></td><td>English, Pidgin &amp; Runyankole</td><td>Global baseline + West African Pidgin + Western Uganda vocabulary.</td><td><span class="pill pill-good">0 ms Lexicon</span></td></tr>
+                <tr data-lang="safety"><td><code>PII-01</code></td><td>Local PII Redaction</td><td>Masks <code>PIN/OTP</code>, phone numbers, and national IDs before cloud calls.</td><td><span class="pill pill-mint">Local Scrub</span></td></tr>
+                <tr data-lang="safety"><td><code>ESC-01</code></td><td>Extension Worker Escalation</td><td>Flags urgency keywords and enqueues SMS receipt into SQLite WAL.</td><td><span class="pill pill-mint">WAL Outbox</span></td></tr>
+                <tr data-lang="carrier"><td><code>GSM-7 / UCS-2</code></td><td>SMS &amp; USSD Packetizer</td><td>Enforces 182/160 GSM-7 vs 80/70 UCS-2 boundaries cleanly.</td><td><span class="pill pill-sky">182B USSD</span></td></tr>
+                <tr data-lang="carrier"><td><code>VAD-16K</code></td><td>Pure Python PCM Telemetry</td><td>Extracts RMS energy, SNR dB, and 16 kbps Opus data footprint.</td><td><span class="pill pill-sky">Stdlib PCM</span></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
 

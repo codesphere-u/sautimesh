@@ -195,7 +195,8 @@
               <rect x="72" y="112" width="36" height="10" rx="5" fill="#7dd3fc" stroke="#1f2421" stroke-width="2.6" />
               <path d="M44 74C30 70 28 58 34 52C39 47 45 60 46 66" fill="#fffdf2" stroke="#1f2421" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
               <path d="M136 78C149 74 152 62 146 54" stroke="#1f2421" stroke-width="3.5" stroke-linecap="round" />
-              <path d="M150 44C158 51 158 67 150 74M159 38C170 49 170 71 159 82" stroke="#082f49" stroke-width="3" stroke-linecap="round" />
+              <path class="mascot-arc-1" d="M150 44C158 51 158 67 150 74" stroke="#082f49" stroke-width="3" stroke-linecap="round" />
+              <path class="mascot-arc-2" d="M159 38C170 49 170 71 159 82" stroke="#082f49" stroke-width="3" stroke-linecap="round" />
             </svg>
           </div>
 
@@ -275,9 +276,52 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
           </div>
         </section>
 
+        <section class="pipeline-card reveal" aria-label="Interactive offline voice pipeline">
+          <div class="pipeline-top">
+            <div>
+              <strong>Live Offline Voice &amp; Mesh Cascade</strong>
+              <span style="display:block; font-size:0.84rem; color:var(--text-70);">Tap a language or pulse a 16 kHz turn through all four local stages.</span>
+            </div>
+            <button type="button" id="play-demo-btn" class="action-mini">Play Voice Turn</button>
+          </div>
+
+          <div class="eq-shell">
+            <span style="font-family:var(--font-mono); font-size:0.74rem; font-weight:700; color:var(--sky-dark);">16 kHz PCM</span>
+            <div class="eq-strip" id="home-eq" aria-hidden="true">
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+              <span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span>
+              <span class="eq-bar"></span><span class="eq-bar"></span>
+            </div>
+            <span style="font-family:var(--font-mono); font-size:0.74rem; color:var(--text-55);">0 ms · $0.00</span>
+          </div>
+
+          <div class="mesh-pipeline" id="home-pipeline">
+            <div class="mesh-stage"><small>01 · Audio VAD</small><strong>RMS + SNR Frame Check</strong><span>16 kbps footprint</span></div>
+            <div class="mesh-stage"><small>02 · Code-Switch</small><strong>Token Lexicon Tagging</strong><span>CSI &amp; PII redaction</span></div>
+            <div class="mesh-stage active"><small>03 · Offline Rules</small><strong>Local Playbook Match</strong><span>Zero cellular bytes</span></div>
+            <div class="mesh-stage sky-hit"><small>04 · SQLite WAL</small><strong>Idempotent Outbox</strong><span>Syncs when online</span></div>
+          </div>
+
+          <div class="lang-ribbon" aria-label="Supported language packs">
+            <button type="button" class="lang-chip active" data-lang-note="Swahili (sw): 'Habari daktari, mtoto ana fever kali leo' -> 100% offline pediatric triage (GSM-7, 1 SMS).">Swahili (sw)</button>
+            <button type="button" class="lang-chip" data-lang-note="Luganda (lg): 'Ssebo obuwuka bungi mu kasooli farm yange' -> Offline maize armyworm scouting playbook.">Luganda (lg)</button>
+            <button type="button" class="lang-chip" data-lang-note="Yoruba (yo): Diacritic-aware (e, o, s) UCS-2 carrier packing &amp; mobile money PIN guard.">Yoruba (yo)</button>
+            <button type="button" class="lang-chip" data-lang-note="Hausa (ha): 'Sannu malam, kwari suna cin masara' -> Dryland pest &amp; cooperative referral routing.">Hausa (ha)</button>
+            <button type="button" class="lang-chip" data-lang-note="French (fr): Sahel &amp; Francophone clinical urgency triggers with SMS fallback receipts.">French (fr)</button>
+            <button type="button" class="lang-chip" data-lang-note="English (en): Cross-cut bridge terms normalized into canonical medical, agro &amp; wallet concepts.">English (en)</button>
+            <button type="button" class="lang-chip" data-lang-note="Nigerian Pidgin (pcm): West African market &amp; wallet balance utterances handled offline.">Pidgin (pcm)</button>
+            <button type="button" class="lang-chip" data-lang-note="Runyankole (nyn): Western Uganda clinic, crop &amp; urgent referral vocabulary baked in.">Runyankole (nyn)</button>
+          </div>
+          <p class="diag-note" id="lang-sample-note" style="margin:0; text-align:center;">
+            Swahili (sw): "Habari daktari, mtoto ana fever kali leo" -> 100% offline pediatric triage (GSM-7, 1 SMS).
+          </p>
+        </section>
+
         <hr class="hairline" />
 
-        <section class="editorial-grid" aria-label="Core principles">
+        <section class="editorial-grid reveal" aria-label="Core principles">
           <div>
             <h2>Offline First</h2>
             <p>
@@ -309,7 +353,7 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
 
         <hr class="hairline" />
 
-        <section class="ecosystem-section" aria-labelledby="eco-title">
+        <section class="ecosystem-section reveal" aria-labelledby="eco-title">
           <h2 id="eco-title">Works Everywhere</h2>
           <p class="ecosystem-sub">
             Run on low-cost Linux boxes, Raspberry Pi clinics, Android Termux field phones, or wire directly into coding agents via stdio MCP.
@@ -352,7 +396,7 @@ SautiMesh v0.1.0 — Tier: offline_rules (0 ms · 0 cellular bytes · KES 0.0)
 
         <hr class="hairline" />
 
-        <section id="faq" aria-labelledby="faq-title">
+        <section id="faq" class="reveal" aria-labelledby="faq-title">
           <h2 id="faq-title" class="sec-title">questions</h2>
           <div class="faq-stack">
             <details class="faq-item">

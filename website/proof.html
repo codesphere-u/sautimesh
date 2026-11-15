@@ -57,69 +57,93 @@
         </section>
 
         <h2>1. Field Research Constraints</h2>
-        <ul>
-          <li><strong>Connectivity Usage Gap (GSMA):</strong> ~63% of Africa’s population lives within mobile broadband range yet stays offline due to handset and mobile-data cost barriers.</li>
-          <li><strong>Power &amp; Compute Deficit (IEA / Africa Evidence Outlook):</strong> ~600M Africans experience unreliable or absent grid power while the continent holds &lt;1% of global cloud compute.</li>
-          <li><strong>Linguistic Code-Switching (Masakhane, Sunbird AI, Lelapa AI):</strong> Over 2,000 languages live on the continent; everyday speech fluidly blends local languages with English or French.</li>
-          <li><strong>The Cost Trap (GIZ / Briter Bridges):</strong> Only ~15% of African AI ventures reach profitability when tied to perpetual USD token billing.</li>
-        </ul>
+        <section class="metric-grid reveal" aria-label="Empirical field metrics">
+          <div class="metric-card">
+            <div class="metric-head"><strong>63%</strong><span>GSMA USAGE GAP</span></div>
+            <div class="metric-bar-track"><div class="metric-bar-fill" data-width="63%"></div></div>
+            <p style="margin:0; font-size:0.86rem;">Population inside cellular coverage yet offline due to data &amp; handset costs.</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-head"><strong>600M</strong><span>IEA POWER DEFICIT</span></div>
+            <div class="metric-bar-track"><div class="metric-bar-fill sky" data-width="78%"></div></div>
+            <p style="margin:0; font-size:0.86rem;">Unreliable or absent grid power across target rural clinics and farms.</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-head"><strong>15%</strong><span>GIZ / BRITER TRAP</span></div>
+            <div class="metric-bar-track"><div class="metric-bar-fill" data-width="15%"></div></div>
+            <p style="margin:0; font-size:0.86rem;">Share of African AI ventures profitable when tied to cloud USD token billing.</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-head"><strong>100%</strong><span>7/7 BENCHMARK</span></div>
+            <div class="metric-bar-track"><div class="metric-bar-fill sky" data-width="100%"></div></div>
+            <p style="margin:0; font-size:0.86rem;">SautiMesh offline containment across health, agriculture &amp; mobile money.</p>
+          </div>
+        </section>
 
         <h2>2. Verified `sautimesh eval` Benchmark (7/7 Pass)</h2>
-        <div class="doc-table-wrap">
-          <table class="doc-table">
-            <thead>
-              <tr>
-                <th>Case ID</th>
-                <th>Languages</th>
-                <th>Domain / Intent</th>
-                <th>Containment &amp; Safety</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>sw-en-health-01</code></td>
-                <td>Swahili + English</td>
-                <td>Pediatric Fever Triage</td>
-                <td><span class="pill pill-good">100% Offline · $0.00</span></td>
-              </tr>
-              <tr>
-                <td><code>lg-en-agri-02</code></td>
-                <td>Luganda + English</td>
-                <td>Maize Pest Advisory</td>
-                <td><span class="pill pill-good">100% Offline · $0.00</span></td>
-              </tr>
-              <tr>
-                <td><code>lg-en-urgent-03</code></td>
-                <td>Luganda</td>
-                <td>Emergency Referral</td>
-                <td><span class="pill pill-mint">Escalation + Outbox</span></td>
-              </tr>
-              <tr>
-                <td><code>yo-en-momo-04</code></td>
-                <td>Yoruba + English</td>
-                <td>Pediatric Fever Triage</td>
-                <td><span class="pill pill-good">100% Offline · $0.00</span></td>
-              </tr>
-              <tr>
-                <td><code>ha-en-agri-05</code></td>
-                <td>Hausa + English</td>
-                <td>Maize Pest Advisory</td>
-                <td><span class="pill pill-good">100% Offline · $0.00</span></td>
-              </tr>
-              <tr>
-                <td><code>fr-health-06</code></td>
-                <td>French</td>
-                <td>Emergency Referral</td>
-                <td><span class="pill pill-mint">Escalation + Outbox</span></td>
-              </tr>
-              <tr>
-                <td><code>sw-momo-07</code></td>
-                <td>Swahili + English</td>
-                <td>Wallet Security</td>
-                <td><span class="pill pill-sky">USSD + PIN Guard</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="preset-pills" style="margin: 0.4rem 0 0.85rem;" role="group" aria-label="Filter benchmark cases">
+          <button type="button" class="chip-btn active" data-proof-filter="all">All Cases (7)</button>
+          <button type="button" class="chip-btn" data-proof-filter="health">Health Triage (3)</button>
+          <button type="button" class="chip-btn" data-proof-filter="agri">Agritech (2)</button>
+          <button type="button" class="chip-btn" data-proof-filter="fintech">Mobile Money (2)</button>
+        </div>
+        <div class="mesh-table-card">
+          <div class="mesh-table-scroll">
+            <table class="mesh-table">
+              <thead>
+                <tr>
+                  <th>Case ID</th>
+                  <th>Languages</th>
+                  <th>Domain / Intent</th>
+                  <th>Containment &amp; Safety</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-proof-cat="health">
+                  <td><code>sw-en-health-01</code></td>
+                  <td>Swahili + English</td>
+                  <td>Pediatric Fever Triage</td>
+                  <td><span class="pill pill-good">100% Offline · $0.00</span></td>
+                </tr>
+                <tr data-proof-cat="agri">
+                  <td><code>lg-en-agri-02</code></td>
+                  <td>Luganda + English</td>
+                  <td>Maize Pest Advisory</td>
+                  <td><span class="pill pill-good">100% Offline · $0.00</span></td>
+                </tr>
+                <tr data-proof-cat="health">
+                  <td><code>lg-en-urgent-03</code></td>
+                  <td>Luganda</td>
+                  <td>Emergency Referral</td>
+                  <td><span class="pill pill-mint">Escalation + Outbox</span></td>
+                </tr>
+                <tr data-proof-cat="fintech">
+                  <td><code>yo-en-momo-04</code></td>
+                  <td>Yoruba + English</td>
+                  <td>Wallet Security &amp; PIN</td>
+                  <td><span class="pill pill-good">100% Offline · $0.00</span></td>
+                </tr>
+                <tr data-proof-cat="agri">
+                  <td><code>ha-en-agri-05</code></td>
+                  <td>Hausa + English</td>
+                  <td>Maize Pest Advisory</td>
+                  <td><span class="pill pill-good">100% Offline · $0.00</span></td>
+                </tr>
+                <tr data-proof-cat="health">
+                  <td><code>fr-health-06</code></td>
+                  <td>French</td>
+                  <td>Emergency Referral</td>
+                  <td><span class="pill pill-mint">Escalation + Outbox</span></td>
+                </tr>
+                <tr data-proof-cat="fintech">
+                  <td><code>sw-momo-07</code></td>
+                  <td>Swahili + English</td>
+                  <td>Wallet Security</td>
+                  <td><span class="pill pill-sky">USSD + PIN Guard</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
 

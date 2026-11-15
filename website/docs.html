@@ -152,20 +152,22 @@
 
             <section class="doc-chapter" data-chapter="cli" data-title="CLI Reference" hidden>
               <h2 id="cli-cmds">All Subcommands</h2>
-              <div class="doc-table-wrap">
-                <table class="doc-table">
-                  <thead><tr><th>Command</th><th>Function</th></tr></thead>
-                  <tbody>
-                    <tr><td><code>sautimesh analyze "..."</code></td><td>Token-level language tags, CSI, PII stripping, GSM-7/UCS-2 counts.</td></tr>
-                    <tr><td><code>sautimesh chat --text "..."</code></td><td>Runs cascade routing, formats voice/SMS/USSD output, logs to SQLite.</td></tr>
-                    <tr><td><code>sautimesh synth-sample out.wav</code></td><td>Generates deterministic 16kHz PCM WAV test utterance + VAD metrics.</td></tr>
-                    <tr><td><code>sautimesh eval</code></td><td>Executes all 7 African &amp; global code-switch benchmark scenarios.</td></tr>
-                    <tr><td><code>sautimesh sync</code></td><td>Drains pending store-and-forward outbox messages safely.</td></tr>
-                    <tr><td><code>sautimesh dpg-card</code></td><td>Exports DPGA Open Source AI transparency manifest.</td></tr>
-                    <tr><td><code>sautimesh serve</code></td><td>Launches local Voice Workbench server at <code>127.0.0.1:8765</code>.</td></tr>
-                    <tr><td><code>sautimesh mcp</code></td><td>Starts zero-dependency stdio JSON-RPC 2.0 MCP server.</td></tr>
-                  </tbody>
-                </table>
+              <div class="mesh-table-card">
+                <div class="mesh-table-scroll">
+                  <table class="mesh-table">
+                    <thead><tr><th>Command</th><th>Function</th><th>Mode</th></tr></thead>
+                    <tbody>
+                      <tr><td><code>sautimesh analyze "..."</code></td><td>Token-level language tags, CSI, PII stripping, GSM-7/UCS-2 counts.</td><td><span class="pill pill-good">Offline</span></td></tr>
+                      <tr><td><code>sautimesh chat --text "..."</code></td><td>Runs cascade routing, formats voice/SMS/USSD output, logs to SQLite.</td><td><span class="pill pill-good">Cascade</span></td></tr>
+                      <tr><td><code>sautimesh synth-sample out.wav</code></td><td>Generates deterministic 16kHz PCM WAV test utterance + VAD metrics.</td><td><span class="pill pill-sky">Audio WAV</span></td></tr>
+                      <tr><td><code>sautimesh eval</code></td><td>Executes all 7 African &amp; global code-switch benchmark scenarios.</td><td><span class="pill pill-good">7/7 Eval</span></td></tr>
+                      <tr><td><code>sautimesh sync</code></td><td>Drains pending store-and-forward outbox messages safely.</td><td><span class="pill pill-mint">WAL Sync</span></td></tr>
+                      <tr><td><code>sautimesh dpg-card</code></td><td>Exports DPGA Open Source AI transparency manifest.</td><td><span class="pill pill-sky">DPGA Card</span></td></tr>
+                      <tr><td><code>sautimesh serve</code></td><td>Launches local Voice Workbench server at <code>127.0.0.1:8765</code>.</td><td><span class="pill pill-mint">HTTP :8765</span></td></tr>
+                      <tr><td><code>sautimesh mcp</code></td><td>Starts zero-dependency stdio JSON-RPC 2.0 MCP server.</td><td><span class="pill pill-sky">Stdio MCP</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </section>
 
