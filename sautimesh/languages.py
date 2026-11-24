@@ -17,6 +17,8 @@ SUPPORTED_LANGUAGES: dict[str, dict[str, str]] = {
     "en": {"name": "English", "region": "Global"},
     "pcm": {"name": "Nigerian Pidgin", "region": "West Africa"},
     "nyn": {"name": "Runyankole-Rukiga", "region": "Western Uganda"},
+    "ach": {"name": "Acholi (Leb Acoli)", "region": "Northern Uganda & South Sudan"},
+    "rw": {"name": "Kinyarwanda", "region": "Rwanda & Great Lakes"},
 }
 
 # Token lexicons intentionally cover everyday greetings, symptoms, crops, and mobile money
@@ -183,6 +185,38 @@ LANGUAGE_LEXICONS: dict[str, dict[str, str]] = {
         "empiiha": "money",
         "ahonaaho": "urgent",
     },
+    "ach": {
+        "kop": "hello",
+        "apwoyo": "thank you",
+        "kony": "help",
+        "lyeto": "fever",
+        "latin": "child",
+        "yat": "medicine",
+        "ot-yat": "clinic",
+        "anyogi": "maize",
+        "poto": "farm",
+        "kot": "rain",
+        "cente": "money",
+        "cwal": "send",
+        "oyot": "urgent",
+        "remo": "bleeding",
+    },
+    "rw": {
+        "muraho": "hello",
+        "murakoze": "thank you",
+        "ubufasha": "help",
+        "umuriro": "fever",
+        "umwana": "child",
+        "umuti": "medicine",
+        "ivuriro": "clinic",
+        "ibigori": "maize",
+        "umurima": "farm",
+        "imvura": "rain",
+        "amafaranga": "money",
+        "ohereza": "send",
+        "byihutirwa": "urgent",
+        "amaraso": "bleeding",
+    },
 }
 
 STOPWORDS_BY_LANG: dict[str, set[str]] = {
@@ -191,6 +225,8 @@ STOPWORDS_BY_LANG: dict[str, set[str]] = {
     "yo": {"ni", "ti", "si", "ati", "fun", "mi"},
     "ha": {"da", "na", "ta", "ga", "cikin", "don"},
     "fr": {"le", "la", "les", "et", "de", "du", "un", "une", "pour", "mon", "ma", "avec"},
+    "ach": {"ki", "ma", "pi", "ka", "dok", "me"},
+    "rw": {"no", "mu", "ku", "kuri", "cyane", "bya"},
     "en": {
         "the", "is", "are", "my", "for", "and", "to", "with", "how", "what", "check",
         "balance", "mobile", "money", "fever", "child", "clinic", "crops", "farm",
